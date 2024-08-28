@@ -2,26 +2,21 @@
 
 class conectar
 {
-
     public function conex()
     {
-
         $host = "localhost";
         $usuario = "root";
-        $pass = " ";
+        $pass = "";
         $bd = "cms_wsp";
-
 
         $conexion = mysqli_connect($host, $usuario, $pass, $bd);
 
         if (mysqli_connect_errno()) {
-            echo 'error en la conexion';
+            echo 'Error en la conexión: ' . mysqli_connect_error();
+            exit();
         }
+        mysqli_set_charset($conexion, 'utf8mb4');
 
-        mysqli_set_charset($conexion, 'Utf8-4');
-
-        mysqli_select_db($conexion, $bd) or die("no se encontro la base de datos");
-
-        mysqli_close($conexion);
+        return $conexion;
     }
 }
