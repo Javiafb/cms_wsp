@@ -6,11 +6,13 @@ require_once './controllers/conexion.php';
 require_once './controllers/view.php';
 require_once './controllers/controller_grupos.php';
 require_once './controllers/controller_categorias.php';
+require_once './controllers/controller_detalles.php';
 
 // modelos
 
 require_once './models/model_grupo.php';
 require_once './models/model_categoria.php';
+require_once './models/model_detalles.php';
 
 
 $vista = new vista();
