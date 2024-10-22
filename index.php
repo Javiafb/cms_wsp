@@ -14,6 +14,8 @@ require_once './models/model_grupo.php';
 require_once './models/model_categoria.php';
 require_once './models/model_detalles.php';
 
+// rutas
+require_once './controllers/controller_rutas.php';
 
 $vista = new vista();
 $vista->index();

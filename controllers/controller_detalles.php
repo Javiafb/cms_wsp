@@ -33,17 +33,34 @@ class controller_detalle
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-12 col-lg-5">
-                            <div class="single_product_desc">
-                                <div class="product-meta-data">
-                                    <div class="line"></div>
-                                    <p class="product-price">' . $datos['nombre_categoria'] . '</p>
+                        <div class="single_product_desc">
+                            
+                            <div class="product-meta-data">
+                                <div class="line"></div>
+                                <p class="product-price">' . $datos['nombre_categoria'] . '</p>
+                                <a href="#">
                                     <h6>' . $datos['nombre_grupo'] . '</h6>
-                                    <p class="avaibility"><i class="fa fa-circle"></i> Enlace: ' . $datos['enlace_grupo'] . '</p>
-                                    <p class="avaibility"><i class="fa fa-circle"></i> Descripción: ' . $datos['descripcion_grupo'] . '</p>
-                                </div>
+                                </a>
+                               
+                                <!-- estado -->
+                                <p class="avaibility"><i class="fa fa-circle"></i> En linea</p>
                             </div>
+
+                            <div class="short_overview my-5">
+                                <p>' . $datos['descripcion_grupo'] . '</p>
+                            </div>
+
+                            <!-- unirse al grupo -->
+                            <div class="cart clearfix">
+                                <a href="https://chat.whatsapp.com/F4uwdYFxB2LGq9FuwgHY8W">
+                                <button class="btn amado-btn">Unirte <img src="../public/img/core-img/whatsapp.png" style="width:35px"></button>
+                                </a>
+                            </div>
+
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>';
