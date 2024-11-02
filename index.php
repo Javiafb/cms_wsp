@@ -19,3 +19,5 @@ require_once './controllers/controller_rutas.php';
 
 $vista = new vista();
 $vista->index();
+
+

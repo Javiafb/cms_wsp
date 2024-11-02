@@ -132,9 +132,25 @@ class controller_categorias
     }
 
 
-    public function prueba()
+    public function carga_cartegorias()
 
     {
-        echo 'hola';
+        $infor = new Model_categoria();
+        $obtener = $infor->categorias();
+
+        $ver = [];
+
+        while ($row = mysqli_fetch_assoc($obtener)) {
+            $ver[] = $row;
+        }
+        echo ' <div class="mb-3">
+                    <select class="form-select" name="categoria" required id="categoria">
+                    <option value="" selected disabled>Seleccionar categoría del nuevo grupo</option>';
+        foreach ($ver as $info) {
+            echo '<option value=' . $info['id_cate'] . '>' . $info['nombre_categoria'] . '</option>';
+        }
+        echo '     
+            </select>
+        </div>';
     }
 }

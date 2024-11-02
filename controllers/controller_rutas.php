@@ -1,6 +1,6 @@
 
 
-<?php 
+<?php
 
 $url = array();
 
@@ -17,18 +17,15 @@ if (empty($url[0])) {
 // Manejar rutas específicas
 switch ($url[0]) {
     case "index":
-        require_once "views/index.php"; // Asegúrate de que este sea el archivo correcto
-        break;
+        require_once "views/index.php";
+        exit();
     case "categorias":
         require_once "views/categorias.php";
-        break;
+        exit();
     case "grupos":
         require_once "views/grupos.php";
-        break;
+        exit();
     default:
         echo 'Error: Página no encontrada';
-        break;
+        exit();
 }
-
-?>
-
