@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+# 
+# Reescribir URLs limpias al archivo index.php con el parámetro 'url'
+
+RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?rut=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
