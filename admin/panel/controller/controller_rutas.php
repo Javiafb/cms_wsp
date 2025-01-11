@@ -22,6 +22,15 @@ switch ($rut[0]) {
     case "ui-buttons":
         require_once "../panel/views/ui-buttons.php";
         exit();
+    case "grupo":
+        require_once "../panel/views/grup.php";
+        exit();
+    case "datos":
+        require_once "../panel/views/database.php";
+        exit();
+    case "user":
+        require_once "../panel/views/user_data.php";
+        exit();
     case "ui-alerts":
         require_once "../panel/views/ui-alerts.php";
         exit();
@@ -41,7 +50,7 @@ switch ($rut[0]) {
         require_once "../panel/views/authentication-register.php";
         exit();
     case "icon-tabler":
-        require_once "../panel/views/ui-tabler.php";
+        require_once "../panel/views/icon-tabler.php";
         exit();
     case "sample-page":
         require_once "../panel/views/sample-page.php";

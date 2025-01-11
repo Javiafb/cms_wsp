@@ -32,7 +32,7 @@ class model_grup
         if (mysqli_query($cone, $sql)) {
             echo "<script>
               alert('Datos guardados correctamente');
-              window.location.href='/cms_wsp/index';
+              window.location.href='/cms_wsp/index.php';
           </script>";
             exit();
         } else {
