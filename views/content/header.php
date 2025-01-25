@@ -1,9 +1,4 @@
 <?php
-
-// require_once './controllers/styles.php';
-
-// $estilos = estilos::url_estilos();
-
 $estilos = 'http://localhost/cms_wsp/public/';
 ?>
 
@@ -86,8 +81,8 @@ $estilos = 'http://localhost/cms_wsp/public/';
 
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
-                <a href="#" class="btn amado-btn mb-15">Registrate</a>
-                <a href="#" class="btn amado-btn active" data-bs-toggle="modal" data-bs-target="#exampleModal">Nuevo</a>
+                <a href="/cms_wsp/admin/panel/register" class="btn amado-btn mb-15">Registrate</a>
+                <a href="/cms_wsp/admin/panel/login" class="btn amado-btn active" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar sesion</a>
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">

@@ -25,8 +25,10 @@ class dataTables
                  <tr>
                   <th>ID</th>
                   <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Correo</th> 
+                  <th>Correo</th>
+                  <th>Clave</th> 
+                  <th>Rol</th> 
+                  <th>opciones</th> 
                 </tr>
             </thead>
          <tbody>';
@@ -34,11 +36,24 @@ class dataTables
         foreach ($infor as $row) {
 
             echo ' <tr>
-                     <td>' . $row['id_usu'] . '</td>
-                     <td>Juan Pérez</td>
-                     <td>juan@example.com</td>
-                     <td>555-1234</td>
-                  </tr>';
+                     <td>' . $row['id_usu'] . '</td> 
+                     <td>' . $row['nombre'] . '</td>
+                     <td>' . $row['correo'] . '</td>
+                     <td>' . $row['clave'] . '</td>';
+
+            if ($row["rol_usu"] == 1) {
+                echo ' <td>  <button type="button" class="btn btn-warning m-1">Admin</button></td>';
+            } else {
+                echo ' <td>  <button type="button" class="btn btn-secondary m-1">Usuario</button></td>';
+            }
+            echo '
+                     <td>
+                  <button type="button" title="borrar" class="btn btn-outline-danger m-1">✖️</button>
+                  <button type="button" title="editar" class="btn btn-outline-primary m-1">✔️</button>
+
+                     </td>
+                  
+                     </tr>';
         };
         echo ' 
         </tbody>
