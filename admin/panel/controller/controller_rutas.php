@@ -55,6 +55,9 @@ switch ($rut[0]) {
     case "sample-page":
         require_once "../panel/views/sample-page.php";
         exit();
+    case "salir":
+        require_once "./controller/controller_sesion_close.php";
+        exit();
     default:
         echo 'Error: Página no encontrada';
         exit();
