@@ -40,4 +40,26 @@ class cargar_imformacion
 
         return $resultado;
     }
+
+    public function guadar_categoria($nombre)
+    {
+
+        $conexion = new conectar();
+        $cone = $conexion->conexion();
+
+        $query = ("INSERT INTO categorias_wsp(nombre_categoria) VALUES ('$nombre')");
+
+        $stmt = $cone->prepare($query);
+
+        if ($stmt->execute()) {
+            $resultado = true;
+        } else {
+            $resultado = "Error al ejecutar la consulta: " . $stmt->error;
+        }
+
+        $stmt->close();
+        $cone->close();
+
+        return $resultado;
+    }
 }

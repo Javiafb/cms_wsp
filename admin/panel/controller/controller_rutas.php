@@ -19,17 +19,27 @@ switch ($rut[0]) {
     case "index":
         require_once "../panel/views/index.php";
         exit();
-    case "ui-buttons":
-        require_once "../panel/views/ui-buttons.php";
-        exit();
     case "grupo":
         require_once "../panel/views/grup.php";
         exit();
     case "datos":
         require_once "../panel/views/database.php";
         exit();
+    case "cate":
+        require_once "../panel/views/categorias.php";
+        exit();
     case "user":
         require_once "../panel/views/user_data.php";
+        exit();
+
+    case "login":
+        require_once "../panel/views/authentication-login.php";
+        exit();
+    case "register":
+        require_once "../panel/views/authentication-register.php";
+        exit();
+    case "ui-buttons":
+        require_once "../panel/views/ui-buttons.php";
         exit();
     case "ui-alerts":
         require_once "../panel/views/ui-alerts.php";
@@ -42,12 +52,6 @@ switch ($rut[0]) {
         exit();
     case "ui-typography":
         require_once "../panel/views/ui-typography.php";
-        exit();
-    case "login":
-        require_once "../panel/views/authentication-login.php";
-        exit();
-    case "register":
-        require_once "../panel/views/authentication-register.php";
         exit();
     case "icon-tabler":
         require_once "../panel/views/icon-tabler.php";

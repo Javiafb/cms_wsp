@@ -49,5 +49,23 @@ class guardarController
             }
         }
     }
+
+    public function guardarcate()
+    {
+        if (isset($_POST['nombre_cate'])) {
+
+            $categoria = $_POST['nombre_cate'];
+
+            $dato = new cargar_imformacion();
+            $respuesta = $dato->guadar_categoria($categoria);
+
+            if ($respuesta === true) {
+                header("Location:cate");
+                exit();
+            } else {
+                echo "Error al guardar en la base de datos: " . $respuesta;
+            }
+        }
+    }
 }
 ob_end_flush(); // Enviar el contenido del búfer de salida y desactivar el almacenamiento en búfer

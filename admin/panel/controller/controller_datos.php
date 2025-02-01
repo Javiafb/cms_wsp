@@ -103,4 +103,46 @@ class dataTables
         </tbody>
     </table>';
     }
+
+    public function table_categorias()
+    {
+
+        $datos = new Model_categorias();
+        $obtdatos = $datos->obte_categorias();
+
+        $infor = [];
+
+
+        while ($data = mysqli_fetch_assoc($obtdatos)) {
+
+            $infor[] = $data;
+        }
+
+        echo '
+
+        <table id="miTabla" class="table table-striped table-bordered" style="width:100%">
+             <thead>
+                 <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>opciones</th> 
+                </tr>
+            </thead>
+         <tbody>';
+
+        foreach ($infor as $row) {
+
+            echo "<tr>";
+            echo "<td>" . $row['id_cate'] . "</td>";
+            echo "<td>" . $row['nombre_categoria'] . "</td>";
+            echo "<td>
+                <button class='btn btn-danger btn-delete' data-id='" . $row['id_cate'] . "'>Eliminar</button>
+            </td>";
+            echo "</tr>";
+        };
+        echo ' 
+        </tbody>
+    </table>';
+    }
+
 }
