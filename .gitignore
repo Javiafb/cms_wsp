@@ -1,8 +1,8 @@
 public/
-views/
+# views/
 admin/panel/src/assets/images
 admin/panel/src/assets/scss
-admin/panel/views
+admin/panel/views/ui-componentes
 .gitattributes
 README.md
 

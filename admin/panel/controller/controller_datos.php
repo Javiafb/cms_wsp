@@ -48,7 +48,8 @@ class dataTables
             }
             echo '
                      <td>
-                  <button type="button" title="borrar" class="btn btn-outline-danger m-1">✖️</button>
+                   <button class="btn btn-danger btn-delete" data-id="'. $row["id_usu"] .  ' " data-type="usuarios">Eliminar</button>
+                  
                   <button type="button" title="editar" class="btn btn-outline-primary m-1">✔️</button>
 
                      </td>
@@ -83,6 +84,7 @@ class dataTables
                   <th>Categoria</th>
                   <th>Pclave</th>
                   <th>Imagen</th>
+                  <th>fun</th>
                 </tr>
             </thead>
          <tbody>';
@@ -97,6 +99,9 @@ class dataTables
                      <td> 
                      <img style="width:80px"; src="http://localhost/cms_wsp/public/img/grupo-img/' . $row['img_grupo'] . ' " >
                      </td>
+                     <td>
+                        <button class="btn btn-danger btn-delete" data-id="'. $row["grupo_id"] .  ' " data-type="grupos">Eliminar</button>
+                    </td>
                   </tr>';
         };
         echo ' 
@@ -136,7 +141,7 @@ class dataTables
             echo "<td>" . $row['id_cate'] . "</td>";
             echo "<td>" . $row['nombre_categoria'] . "</td>";
             echo "<td>
-                <button class='btn btn-danger btn-delete' data-id='" . $row['id_cate'] . "'>Eliminar</button>
+                <button class='btn btn-danger btn-delete' data-id='" . $row['id_cate'] .  " ' data-type='categorias'>Eliminar</button>
             </td>";
             echo "</tr>";
         };
