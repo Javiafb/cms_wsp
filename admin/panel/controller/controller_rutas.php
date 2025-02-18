@@ -31,38 +31,16 @@ switch ($rut[0]) {
     case "user":
         require_once "../panel/views/user_data.php";
         exit();
-
     case "login":
         require_once "../panel/views/authentication-login.php";
         exit();
     case "register":
         require_once "../panel/views/authentication-register.php";
         exit();
-    case "ui-buttons":
-        require_once "../panel/views/ui-buttons.php";
-        exit();
-    case "ui-alerts":
-        require_once "../panel/views/ui-alerts.php";
-        exit();
-    case "ui-card":
-        require_once "../panel/views/ui-card.php";
-        exit();
-    case "ui-forms":
-        require_once "../panel/views/ui-forms.php";
-        exit();
-    case "ui-typography":
-        require_once "../panel/views/ui-typography.php";
-        exit();
-    case "icon-tabler":
-        require_once "../panel/views/icon-tabler.php";
-        exit();
-    case "sample-page":
-        require_once "../panel/views/sample-page.php";
-        exit();
     case "salir":
         require_once "./controller/controller_sesion_close.php";
         exit();
     default:
-        echo 'Error: Página no encontrada';
+        require_once "../panel/views/404.php";
         exit();
 }

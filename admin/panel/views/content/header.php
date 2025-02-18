@@ -69,14 +69,16 @@ $rutas = 'http://localhost/cms_wsp/admin/panel/src/assets/';
                                 <span class="hide-menu">Panel</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="grupo" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-social"></i>
-                                </span>
-                                <span class="hide-menu">Mis grupos</span>
-                            </a>
-                        </li>
+                        <?php if ($_SESSION['rol'] != 1): ?>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="grupo" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-social"></i>
+                                    </span>
+                                    <span class="hide-menu">Mis grupos</span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <?php
 
                         if ($_SESSION['rol'] == 1) {
@@ -89,14 +91,7 @@ $rutas = 'http://localhost/cms_wsp/admin/panel/src/assets/';
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Admin</span>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="grupo" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-social"></i>
-                                </span>
-                                <span class="hide-menu">Grupos</span>
-                            </a>
-                        </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="datos" aria-expanded="false">
                                 <span>
@@ -119,91 +114,6 @@ $rutas = 'http://localhost/cms_wsp/admin/panel/src/assets/';
                                     <i class="ti ti-category"></i>
                                 </span>
                                 <span class="hide-menu">Categorias</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">UI COMPONENTES</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-buttons" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-article"></i>
-                                </span>
-                                <span class="hide-menu">Botones</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-alerts" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-alert-circle"></i>
-                                </span>
-                                <span class="hide-menu">Alertas</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-card" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-cards"></i>
-                                </span>
-                                <span class="hide-menu">tarjetas</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-forms" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-file-description"></i>
-                                </span>
-                                <span class="hide-menu">Formularios</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-typography" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-typography"></i>
-                                </span>
-                                <span class="hide-menu">Typografia</span>
-                            </a>
-                        </li>
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">AUTH</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="login" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-login"></i>
-                                </span>
-                                <span class="hide-menu">Iniciar sesion</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="register" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-user-plus"></i>
-                                </span>
-                                <span class="hide-menu">Registro</span>
-                            </a>
-                        </li>
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">EXTRA</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="icon-tabler" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-mood-happy"></i>
-                                </span>
-                                <span class="hide-menu">Iconos</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="sample-page" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-aperture"></i>
-                                </span>
-                                <span class="hide-menu">Pagina</span>
                             </a>
                         </li>
             </div>

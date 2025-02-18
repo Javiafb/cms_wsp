@@ -4,13 +4,9 @@ session_start();
 
 class RolController
 {
-
-
     public function verificarRol()
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $usuario = $_POST['usuario'];
             $password = $_POST['contra'];
 
@@ -19,14 +15,15 @@ class RolController
             $conexion = new conectar();
             $cone = $conexion->conexion();
 
-            $stmt = $cone->prepare("SELECT * FROM usuarios_wsp WHERE correo = ? AND clave = ?");
-            // $md5_pass = md5($password);
-            $stmt->bind_param("ss", $usuario, $password);
+
+            $stmt = $cone->prepare("SELECT id_usu, nombre, rol_usu, clave FROM usuarios_wsp WHERE correo = ?");
+            $stmt->bind_param("s", $usuario);
             $stmt->execute();
             $result = $stmt->get_result();
-            $filas = $result->fetch_array();
+            $filas = $result->fetch_assoc();
 
-            if ($filas) {
+            if ($filas && password_verify($password, $filas['clave'])) {
+
                 $_SESSION['user'] = $filas;
                 $_SESSION['uid'] = $filas['id_usu'];
                 $_SESSION['uname'] = $filas['nombre'];
@@ -34,8 +31,6 @@ class RolController
 
                 switch ($_SESSION['rol']) {
                     case 1:
-                        header("Location: index");
-                        break;
                     case 2:
                         header("Location: index");
                         break;
@@ -47,7 +42,7 @@ class RolController
             } else {
                 echo '
                 <div class="alert alert-danger" role="alert" style="z-index: 1; text-align: center;position: absolute;margin: 5px 40%;">
-                    Error usuario o contraseña son incorrectos!
+                    Error: usuario o contraseña incorrectos.
                 </div>
                 ';
             }

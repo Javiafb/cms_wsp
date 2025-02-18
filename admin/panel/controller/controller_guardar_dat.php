@@ -4,9 +4,37 @@ require_once './model/model_cargar.php';
 
 class guardarController
 {
+
+    public function registro()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $nombre = $_POST['nombre_usu'];
+            $correo = $_POST['correo_usu'];
+            $clave = $_POST['contra_usu'];
+
+            $registro  = [
+                "nombre" => $nombre,
+                "correo" => $correo,
+                "clave" => $clave
+            ];
+
+            $carga = new cargar_imformacion();
+            $resul = $carga->guardar_usu($registro);
+
+            if ($resul === true) {
+                header('location:login');
+                exit();
+            } else {
+                echo 'error al registar el usuario' . $resul;
+            }
+        }
+    }
     public function guardardatos()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $idusu = $_POST['ui'];
             $nombre = $_POST['nombre'] ?? '';
             $palabraclave = $_POST['palabraclave'] ?? '';
             $enlace = $_POST['enlace'] ?? '';
@@ -24,6 +52,7 @@ class guardarController
                 // Intentar mover la imagen al directorio
                 if (move_uploaded_file($tmpname, $destino)) {
                     $datos = [
+                        'id_usu' => $idusu,
                         'categorias' => $categoria,
                         'nombre' => $nombre,
                         'enlace' => $enlace,
@@ -36,8 +65,13 @@ class guardarController
                     $resultado = $cargar->guardar_grupo($datos);
 
                     if ($resultado === true) {
-                        header("Location:datos");
-                        exit();
+                        if ($_SESSION['uid'] == 1) {
+                            header("Location:datos");
+                            exit();
+                        } else {
+                            header("Location:grupo");
+                            exit();
+                        }
                     } else {
                         echo "Error al guardar en la base de datos: " . $resultado;
                     }

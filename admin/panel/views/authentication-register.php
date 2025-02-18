@@ -1,3 +1,4 @@
+<?php require './controller/controller_guardar_dat.php';?>
 <!doctype html>
 <html lang="en">
 
@@ -26,6 +27,14 @@
   </style>
 </head>
 
+<?php
+
+$registrar = new guardarController();
+$registrar->registro();
+
+
+?>
+
 <body>
   <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
@@ -35,22 +44,22 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
-                <a href="#" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                <a href="javascript:void(0)" class="text-nowrap logo-img text-center d-block py-3 w-100">
                   <img src="../panel/src/assets/images/logos/logot.png" width="110" alt="">
                 </a>
                 <p class="text-center">CMS/WSP</p>
-                <form>
+                <form method="post">
                   <div class="mb-3">
                     <label for="exampleInputtext1" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                    <input type="text" class="form-control" name="nombre_usu" id="name" aria-describedby="textHelp" required>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" name="correo_usu" id="Email" aria-describedby="emailHelp" required>
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" name="contra_usu" id="Password" required>
                   </div>
                   <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Registrase</button>
                   <div class="d-flex align-items-center justify-content-center">

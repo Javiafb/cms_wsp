@@ -26,7 +26,6 @@ class dataTables
                   <th>ID</th>
                   <th>Nombre</th>
                   <th>Correo</th>
-                  <th>Clave</th> 
                   <th>Rol</th> 
                   <th>opciones</th> 
                 </tr>
@@ -38,23 +37,19 @@ class dataTables
             echo ' <tr>
                      <td>' . $row['id_usu'] . '</td> 
                      <td>' . $row['nombre'] . '</td>
-                     <td>' . $row['correo'] . '</td>
-                     <td>' . $row['clave'] . '</td>';
+                     <td>' . $row['correo'] . '</td>';
 
             if ($row["rol_usu"] == 1) {
                 echo ' <td>  <button type="button" class="btn btn-warning m-1">Admin</button></td>';
             } else {
                 echo ' <td>  <button type="button" class="btn btn-secondary m-1">Usuario</button></td>';
             }
-            echo '
-                     <td>
-                   <button class="btn btn-danger btn-delete" data-id="'. $row["id_usu"] .  ' " data-type="usuarios">Eliminar</button>
-                  
-                  <button type="button" title="editar" class="btn btn-outline-primary m-1">✔️</button>
+            echo ' <td>
+                   <button class="btn btn-danger btn-delete" title="borrar" data-id="' . $row["id_usu"] .  ' " data-type="usuarios"><i class="ti ti-trash-x fs-4"></i>Eliminar</button>
+                   <button type="button" title="editar" class="btn btn-outline-primary m-1"><i class="ti ti-edit fs-4"></i>Editar</button>
 
                      </td>
-                  
-                     </tr>';
+                   </tr>';
         };
         echo ' 
         </tbody>
@@ -84,7 +79,8 @@ class dataTables
                   <th>Categoria</th>
                   <th>Pclave</th>
                   <th>Imagen</th>
-                  <th>fun</th>
+                  <th>Eliminar</th>
+                  <th>Editar</th>
                 </tr>
             </thead>
          <tbody>';
@@ -93,14 +89,17 @@ class dataTables
 
             echo ' <tr>
                      <td>' . $row['grupo_id'] . '</td>
-                     <td>' . $row['id_usu'] . '</td>
                      <td>' . $row['nombre_grupo'] . '</td>
+                     <td>' . $row['nombre_categoria'] . '</td>
                      <td>' . $row['pclave_grupo'] . '</td>
                      <td> 
                      <img style="width:80px"; src="http://localhost/cms_wsp/public/img/grupo-img/' . $row['img_grupo'] . ' " >
                      </td>
                      <td>
-                        <button class="btn btn-danger btn-delete" data-id="'. $row["grupo_id"] .  ' " data-type="grupos">Eliminar</button>
+                        <button class="btn btn-danger btn-delete" data-id="' . $row["grupo_id"] .  ' " data-type="grupos"><i class="ti ti-trash-x fs-4"></i>Eliminar</button>
+                    </td>  
+                    <td>
+                       <button class="btn btn-success btn-edit" data-type="editar"  data-gru="' . $row["grupo_id"] . '" data-nombre="' . $row["nombre_grupo"] . '  " data-enlace="' . $row["enlace_grupo"] . ' " data-categoria="' . $row["nombre_categoria"] . '" data-pclave="' . $row["pclave_grupo"] . '" data-img="' . $row["img_grupo"] . '"><i class="ti ti-edit fs-4"></i>Editar</button>
                     </td>
                   </tr>';
         };
@@ -141,7 +140,7 @@ class dataTables
             echo "<td>" . $row['id_cate'] . "</td>";
             echo "<td>" . $row['nombre_categoria'] . "</td>";
             echo "<td>
-                <button class='btn btn-danger btn-delete' data-id='" . $row['id_cate'] .  " ' data-type='categorias'>Eliminar</button>
+                <button class='btn btn-danger btn-delete' data-id='" . $row['id_cate'] .  " ' data-type='categorias'><i class='ti ti-trash-x fs-4'></i>Eliminar</button>
             </td>";
             echo "</tr>";
         };
@@ -149,5 +148,4 @@ class dataTables
         </tbody>
     </table>';
     }
-
 }

@@ -2,7 +2,7 @@
 class model_funcion
 {
 
-    public function eliminar_categoria($id)
+    public function eliminar_categoria($id_cate)
     {
 
         $conectar = new conectar();
@@ -14,7 +14,7 @@ class model_funcion
             return false;
         }
 
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $id_cate);
         $resultado = $stmt->execute();
 
         if ($resultado === false) {
@@ -26,7 +26,7 @@ class model_funcion
         return $resultado;
     }
 
-    public function eliminar_grupo($id)
+    public function eliminar_grupo($id_gru)
     {
         $conectar = new conectar();
         $cone = $conectar->conexion();
@@ -37,7 +37,7 @@ class model_funcion
             return false;
         }
 
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $id_gru);
         $resultado = $stmt->execute();
 
         if ($resultado === false) {
@@ -49,7 +49,7 @@ class model_funcion
         return $resultado;
     }
 
-    public function eliminar_usuario($id)
+    public function eliminar_usuario($id_user)
     {
         $conectar = new conectar();
         $cone = $conectar->conexion();
@@ -60,7 +60,7 @@ class model_funcion
             return false;
         }
 
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $id_user);
         $resultado = $stmt->execute();
 
         if ($resultado === false) {
@@ -71,4 +71,6 @@ class model_funcion
         $cone->close();
         return $resultado;
     }
+
+    
 }
