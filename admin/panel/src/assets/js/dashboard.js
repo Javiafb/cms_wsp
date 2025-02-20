@@ -1,14 +1,17 @@
 $(function () {
-
-
   // =====================================
   // Profit
   // =====================================
+  var topUsuarios = topUsuariosGrupos.map(function (usuario) {
+    return usuario.nombre;
+  });
+
+  var totalGruposPorUsuario = topUsuariosGrupos.map(function (usuario) {
+    return usuario.total_grupos;
+  });
+
   var chart = {
-    series: [
-      { name: "Earnings this month:", data: [355, 390, 300, 350, 390, 180, 355, 390] },
-      { name: "Expense this month:", data: [280, 250, 325, 215, 250, 310, 280, 250] },
-    ],
+    series: [{ name: "Grupos", data: totalGruposPorUsuario }],
 
     chart: {
       type: "bar",
@@ -16,21 +19,19 @@ $(function () {
       offsetX: -15,
       toolbar: { show: true },
       foreColor: "#adb0bb",
-      fontFamily: 'inherit',
+      fontFamily: "inherit",
       sparkline: { enabled: false },
     },
 
-
-    colors: ["#5D87FF", "#49BEFF"],
-
+    colors: ["#5D87FF"],
 
     plotOptions: {
       bar: {
         horizontal: false,
         columnWidth: "35%",
         borderRadius: [6],
-        borderRadiusApplication: 'end',
-        borderRadiusWhenStacked: 'all'
+        borderRadiusApplication: "end",
+        borderRadiusWhenStacked: "all",
       },
     },
     markers: { size: 0 },
@@ -39,11 +40,9 @@ $(function () {
       enabled: false,
     },
 
-
     legend: {
       show: false,
     },
-
 
     grid: {
       borderColor: "rgba(0,0,0,0.1)",
@@ -57,17 +56,16 @@ $(function () {
 
     xaxis: {
       type: "category",
-      categories: ["16/08", "17/08", "18/08", "19/08", "20/08", "21/08", "22/08", "23/08"],
+      categories: topUsuarios,
       labels: {
         style: { cssClass: "grey--text lighten-2--text fill-color" },
       },
     },
 
-
     yaxis: {
       show: true,
       min: 0,
-      max: 400,
+      max: Math.max(...totalGruposPorUsuario) + 10,
       tickAmount: 4,
       labels: {
         style: {
@@ -82,7 +80,6 @@ $(function () {
       colors: ["transparent"],
     },
 
-
     tooltip: { theme: "light" },
 
     responsive: [
@@ -92,26 +89,23 @@ $(function () {
           plotOptions: {
             bar: {
               borderRadius: 3,
-            }
+            },
           },
-        }
-      }
-    ]
-
-
+        },
+      },
+    ],
   };
 
   var chart = new ApexCharts(document.querySelector("#chart"), chart);
   chart.render();
-
 
   // =====================================
   // Breakup
   // =====================================
   var breakup = {
     color: "#adb5bd",
-    series: [38, 40, 25],
-    labels: ["2022", "2021", "2020"],
+    series: [totalUsuarios, totalGrupos],
+    labels: ["Usuarios", "Grupos"],
     chart: {
       width: 180,
       type: "donut",
@@ -123,7 +117,7 @@ $(function () {
         startAngle: 0,
         endAngle: 360,
         donut: {
-          size: '75%',
+          size: "75%",
         },
       },
     },
@@ -138,7 +132,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["#5D87FF", "#ecf2ff", "#F9F9FD"],
+    colors: ["#5D87FF", "#49BEFF"],
 
     responsive: [
       {
@@ -158,8 +152,6 @@ $(function () {
 
   var chart = new ApexCharts(document.querySelector("#breakup"), breakup);
   chart.render();
-
-
 
   // =====================================
   // Earning
@@ -208,4 +200,4 @@ $(function () {
     },
   };
   new ApexCharts(document.querySelector("#earning"), earning).render();
-})
+});

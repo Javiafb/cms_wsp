@@ -122,11 +122,16 @@ $rutas = 'http://localhost/cms_wsp/admin/panel/src/assets/';
             <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
                 <div class="d-flex">
                     <div class="unlimited-access-title me-3">
-                        <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Hola, <?php echo  $_SESSION['uname']; ?></h6>
-                        <a href="salir" target="_blank" class="btn btn-warning fs-2 fw-semibold lh-sm">Admin</a>
+                        <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Hola, Bienvenido <?php echo  $_SESSION['uname']; ?></h6>
+                        <?php if ($_SESSION['rol'] == 1): ?>
+                            <a href="javascript:void(0)" class="btn btn-warning fs-2 fw-semibold lh-sm">Admin</a>
+                        <?php else: ?>
+                            <a href="javascript:void(0)" class="btn btn-secondary fs-2 fw-semibold lh-sm">Usuario</a>
+                        <?php endif; ?>
+
                     </div>
-                    <div class="unlimited-access-img">
-                        <img src=" <?php echo $rutas ?>images/backgrounds/rocket.png" alt="" class="img-fluid">
+                    <div class="unlimited-access-img mt-5 ">
+                        <img src=" <?php echo $rutas ?>images/backgrounds/storage.png" alt="" width="80px" class="img-fluid">
                     </div>
                 </div>
             </div>
